@@ -28,9 +28,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-//df038a2589b7445cb7e0f762e4db63d4
-//"https://newsapi.org/v2/"
-
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
