@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
-
 android {
     compileSdk 32
 
@@ -89,4 +89,8 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil-compose:1.4.0"
+}
+kapt {
+    correctErrorTypes true
+    generateStubs = true
 }

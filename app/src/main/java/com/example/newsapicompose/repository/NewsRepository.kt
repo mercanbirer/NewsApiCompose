@@ -8,7 +8,7 @@ import javax.inject.Inject
 class NewsRepository @Inject constructor(
     private val api : NewsApi
 ): NewsApi {
-    override suspend fun getNews(country: String, key: String): Response<News> {
+    override suspend fun getNews(country: String, key: String): News{
         return api.getNews(country = country,key = key)
     }
 }

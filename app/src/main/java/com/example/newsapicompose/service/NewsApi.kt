@@ -10,5 +10,5 @@ interface NewsApi {
     suspend fun getNews(
         @Query("country") country: String,
         @Query("apiKey") key: String
-    ): Response<News>
+    ): News
 }

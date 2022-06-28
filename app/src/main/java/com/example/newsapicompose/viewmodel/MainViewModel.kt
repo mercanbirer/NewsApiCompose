@@ -1,5 +1,6 @@
 package com.example.newsapicompose.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapicompose.di.Resource
@@ -19,8 +20,8 @@ class MainViewModel  @Inject constructor(
     private val usecase : NewsUseCase
 ) : ViewModel(){
 
-    private val _apiNews = MutableStateFlow<Resource<Response<News>>>(Resource.Idle())
-    var apiNews: StateFlow<Resource<Response<News>>> = _apiNews
+    private val _apiNews = MutableStateFlow<Resource<News>>(Resource.Idle())
+    var apiNews: StateFlow<Resource<News>> = _apiNews
 
 
     fun getNews(country: String, key: String) {
@@ -29,15 +30,12 @@ class MainViewModel  @Inject constructor(
                 when (result) {
                     is Resource.Loading -> {
                         _apiNews.value = Resource.Loading()
-                        Timber.tag("Loading").e("")
                     }
                     is Resource.Success -> {
                         _apiNews.value = Resource.Success(result.data!!)
-                        Timber.tag("Success").e("")
                     }
                     is Resource.Error -> {
                         _apiNews.value = Resource.Error("error")
-                        Timber.tag("Error").e("")
                     }
                     is Resource.Idle -> {
                         _apiNews.value = Resource.Idle()

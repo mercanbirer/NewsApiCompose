@@ -15,7 +15,7 @@ import javax.inject.Inject
 class NewsUseCase @Inject constructor(
     private val repository: NewsRepository
 ) {
-    fun getNews(country: String, key: String): Flow<Resource<Response<News>>> {
+    fun getNews(country: String, key: String): Flow<Resource<News>> {
         return flow {
             emit(Resource.Loading())
             val users = withContext(Dispatchers.IO) {

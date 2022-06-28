@@ -23,7 +23,7 @@ class AppModule {
     @Singleton
     fun context(application: Application): Context = application.applicationContext
 
-    private val BASE_URL = "ttps://newsapi.org/v2/"
+    private val BASE_URL = "https://newsapi.org/v2/"
     private val API_KEY = "df038a2589b7445cb7e0f762e4db63d4"
     private val connectionTimeout: Int = 10000
 
@@ -37,7 +37,6 @@ class AppModule {
                 val originalHttpUrl = original.url
                 val url = originalHttpUrl.newBuilder()
                     .addQueryParameter("api_key", API_KEY)
-                    //.addQueryParameter("language", LANGUAGE)
                     .build()
                 val requestBuilder = original.newBuilder()
                     .url(url)
